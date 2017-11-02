@@ -1,0 +1,13 @@
+﻿<div class="col-md-6 col-md-offset-3">
+    <h1>Hi {{currentUser.firstName}}!</h1>
+    <p>您已经成功登录问卷调查系统!!</p>
+    <h3>所有注册的名单:</h3>
+    <ul>
+        <li *ngFor="let user of users">
+            {{user.username}} ({{user.firstName}} {{user.lastName}})
+            - <a (click)="deleteUser(user.id)">删除用户</a>
+        </li>
+    </ul>
+    <p><a [routerLink]="['/login']">退出</a></p>
+    <p><a [routerLink]="['/menu/questionnaire']">去调查页面</a></p>
+</div>

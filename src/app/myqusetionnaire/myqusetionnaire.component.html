@@ -1,0 +1,42 @@
+<div class="search bar7">
+	<form calss="f">
+		<input calss="f1" [(ngModel)]="searchthing" name="search" type="text" placeholder="请输入您要搜索的内容...">
+		<a calss="f2" type="submit" [routerLink]="['/menu/search',searchthing]">搜索</a>
+
+	</form>
+</div>
+<p></p>
+
+<div class="bb">
+	<div id="search-field">
+		<label>问题标题:</label><input style="width:400px; height=700px;" [(ngModel)]="answer" required/>
+		<p></p>
+		<div *ngIf="answerRequire" class="alert alert-danger">
+			题目必须要填写
+		</div>
+		<label>问题答案:</label><input style="width:400px; height=700px;" [(ngModel)]="title" required />
+		<p></p>
+		<div *ngIf="titleRequire" class="alert alert-danger">
+			答案必须要填写
+		</div>
+		<button class="q" (click)="add(title,answer); title='';answer=''">
+    增加题目
+  </button>
+	</div>
+</div>
+
+
+<div class="abc">
+
+	<div *ngFor="let questionnaire of questionnairesbypage; let i=index">
+		<div class="press">第{{i + 1}}题 :{{questionnaire.title}}</div>
+		<input style="width:500px; height=700px;" placeholder="请输入正确的答案" />
+		<p>
+			<button class="q" (click)="delete(questionnaire); $event.stopPropagation()">删除</button>
+			<button class="q" [routerLink]="['/menu/updatequestionnaire',questionnaire.id]">编辑</button>
+		</p>
+	</div>
+</div>
+
+<label>共{{totalcount}}条记录</label><button (click)="prePage(currentpage);" name="button">上一页</button><label>当前第{{nowpage}}页</label> <button (click)="nextPage(currentpage);" name="button">下一页</button>
+<label>共有{{totalpage}}页</label>

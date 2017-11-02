@@ -1,0 +1,6 @@
+<p-menubar [model]="items">
+</p-menubar>
+
+<p>{{currentUser.firstName}}正在登录
+<a [routerLink]="['/login']" href="javascript:void(0);" class="button">退出登录</a></p>
+<router-outlet></router-outlet>

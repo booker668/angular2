@@ -1,0 +1,22 @@
+<h2>搜索结果</h2>
+<div *ngIf="questionnaire">
+  <div *ngFor="let q of questionnaire; let i=index">
+  <!-- <div> -->
+  <div>
+    <div>
+      <label class="press">问题:{{q.title}} </label>
+
+    </div>
+
+  <div>
+    <label class="press">答案:{{q.answer}} </label>
+
+  </div>
+</div>
+  <div>
+  </div>
+
+
+</div>
+<p *ngIf="questionnaire.length<1">对不起，找不到结果</p>
+<button (click)="goBack()">Back</button>

@@ -1,0 +1,21 @@
+<div *ngIf="questionnaire">
+  <h2>修改</h2>
+  <div>
+    <div>
+      <label>问题: </label>
+      <input  class = "aaa" style="width:700px; height=700px;" #answer [(ngModel)]="questionnaire.title" placeholder="" value=questionnaire.title/>
+    </div>
+    <p></p>
+
+  <div>
+    <label>答案: </label>
+    <input class = "aaa" style="width:700px; height=700px;" #title [(ngModel)]="questionnaire.answer" placeholder="" value={{questionnaire.answer}}/>
+
+  </div>
+  <div>
+    <button (click)="update(questionnaire.id,title.value,answer.value);">
+      保存
+    </button>
+  </div>
+  <button (click)="goBack()">Back</button>
+</div>
